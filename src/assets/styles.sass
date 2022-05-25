@@ -7,15 +7,30 @@ html, body
     font-family: 'Source Code Pro', monospace
     background-color: $background-primary
     color: $text-primary
+    &.light-theme
+        background-color: $background-primary-light
+        color: $text-primary-light
+        a
+            color: $link-color-light
 
 a
     text-decoration: none
     color: $link-color
     font-weight: bolder
 
+.not-active
+    opacity: .5
+
 #app
     max-width: 1200px
     margin: auto
+    .profile
+        display: flex
+        flex-direction: column
+        text-align: center
+        justify-content: center
+        .profile-info
+            margin-top: 2rem
     .repositories
         display: flex
         flex-wrap: wrap
@@ -42,9 +57,6 @@ a
                     border-radius: 50%
                     background: white
                     margin: auto .6rem
-                &.HTML
-                    &::before
-                        background: red
 
 
 footer
