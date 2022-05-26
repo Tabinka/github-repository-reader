@@ -4,25 +4,78 @@
 html, body
     padding: 0
     margin: 0
+    max-height: 100%
+    height: 100%
     font-family: 'Source Code Pro', monospace
-    background-color: $background-primary
+    background: url('/src/assets/github.svg') $background-primary
+    background-size: 40%
+    background-repeat: no-repeat
+    background-position: 120% bottom
     color: $text-primary
-    &.light-theme
-        background-color: $background-primary-light
-        color: $text-primary-light
-        a
-            color: $link-color-light
+    overflow-x: hidden
 
 a
     text-decoration: none
     color: $link-color
     font-weight: bolder
+    margin: 0
+    &:hover
+        color: $text-primary
+        text-decoration: underline
+
+ul
+    list-style: none
+    padding: 0
+    margin: auto
+    text-align: center
+    li
+        margin: 1rem 0
+        font-size: 1.5rem
+        a
+            color: $text-primary
 
 .not-active
     opacity: .5
 
+p
+    margin: 0
+
+svg
+    cursor: pointer
+    transition: .5s
+    &:hover
+        opacity: .6
+
+header
+    display: flex
+    padding: 1rem 0
+    #sidebar-menu
+        display: none
+        position: fixed
+        left: 0
+        top: 0
+        width: 20rem
+        height: 100%
+        background: $background-secondary
+        label
+            position: relative
+            left: 76%
+    input
+        display: none
+        &:checked ~ #sidebar-menu
+            display: block
+
+h1
+    margin: 1.5rem 0
+
+#about
+    text-align: center
+    h3
+        margin-top: 3rem
+        margin-bottom: 1rem
+
 #app
-    max-width: 1200px
+    max-width: 1700px
     margin: auto
     .profile
         display: flex
@@ -35,6 +88,7 @@ a
         display: flex
         flex-wrap: wrap
         justify-content: center
+        margin: 2rem 0
         .repository-block
             padding: 1.5rem
             flex: 50%
@@ -49,6 +103,7 @@ a
                 font-size: .9rem
             span
                 display: block
+                margin: 1rem 0
                 &::before
                     content: ""
                     display: inline-block
@@ -57,6 +112,18 @@ a
                     border-radius: 50%
                     background: white
                     margin: auto .6rem
+                &.red
+                    &::before
+                        background-color: $red-color
+                &.blue
+                    &::before
+                        background-color: $blue-color
+                &.yellow
+                    &::before
+                        background-color: $yellow-color
+                &.green
+                    &::before
+                        background-color: $green-color
 
 
 footer
