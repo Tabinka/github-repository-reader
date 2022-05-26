@@ -37,6 +37,7 @@ ul
 
 p
     margin: 0
+    font-size: 1rem
 
 svg
     cursor: pointer
@@ -52,8 +53,10 @@ header
         position: fixed
         left: 0
         top: 0
-        width: 20rem
+        max-width: 20rem
+        width: 100%
         height: 100%
+        z-index: 100
         background: $background-secondary
         label
             position: relative
@@ -80,8 +83,13 @@ h1
         flex-direction: column
         text-align: center
         justify-content: center
+        img
+            max-width: 20rem
+            width: 100%
         .profile-info
             margin-top: 2rem
+            .row
+                margin: 1rem auto
     .repositories
         display: flex
         flex-wrap: wrap
@@ -97,11 +105,11 @@ h1
             a
                 font-size: 1.4rem
             .description
-                font-weight: lighter
-                font-size: .9rem
+                font-weight: 400
+                margin: 1rem 0
             span
                 display: block
-                margin: 1rem 0
+                font-size: .9rem
                 &::before
                     content: ""
                     display: inline-block
@@ -109,7 +117,7 @@ h1
                     height: .8rem
                     border-radius: 50%
                     background: white
-                    margin: auto .6rem
+                    margin: auto .4rem
                 &.red
                     &::before
                         background-color: $red-color
@@ -131,3 +139,27 @@ footer
         margin: 0
         font-size: .8rem
         opacity: .5
+
+
+@media screen and (max-width: 998px)
+
+    body
+        background-size: 60%
+
+    #app
+        padding: 0 2rem
+
+    
+@media screen and (max-width: 448px)
+
+    #app
+        padding: 0
+        .repositories
+            .repository-block
+                a
+                    font-size: 1.1rem
+                    word-break: break-all
+                .description
+                    font-size: .9rem
+                span
+                    font-size: .8rem

@@ -1,7 +1,10 @@
 import API from './API'
 
 export default {
-    getGithubData(value) {
+    getGithubRepos(value) {
+        return API().get(`/users/${value}/repos`)
+    },
+    getGithubProfileData(value) {
         return API().get(`/users/${value}`)
     }
 }

@@ -7,10 +7,10 @@
     </p>
     <h3>How to use:</h3>
       <p>
-        Default for list of repositories is my Github: Tabinka
+        Default list of repositories is from my Github: Tabinka
       </p>
       <p>
-        For list of repositories for another user set in the url this: ?username=&#60;your-username&#62;
+        For list of repositories from another user set in the url this: ?username=&#60;your-username&#62;
       </p>
   </div>
 </template>

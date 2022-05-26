@@ -1,7 +1,8 @@
 <template>
+  <div class="alert alert-danger" role="alert" v-if="data.message">{{ data.message }}</div>
     <Profile />
   <div class="repositories">
-    <div v-for="(data, index) in data" class="repository-block">
+    <div v-for='(data, index) in data' :key='index' class="repository-block">
       <a :href="`${data.html_url}`" target="_blank">{{ data.name }}</a>
       <p class="description">{{ data.description }}</p>
       <span v-if="data.language" :class="`${randomColor()}`">{{ data.language }}</span>
@@ -18,10 +19,10 @@ import Profile from "@/components/Profile.vue"
 
     const loadRepo = async () => {
       try {
-        const response = await GithubAPI.getGithubData(`${localStorage.getItem('username')}/repos`)
+        const response = await GithubAPI.getGithubRepos(localStorage.getItem('username'))
         data.value = response.data
       } catch (err) {
-        console.log(err)
+        data.value = err
       }
       return data
     }
@@ -32,7 +33,7 @@ export default {
     },
     methods: {
         randomColor: () => {
-            let colors = ["blue", "red", "yellow", "green"]
+            const colors = ["blue", "red", "yellow", "green"]
             let chosenColor = Math.floor(Math.random() * colors.length)
             return colors[chosenColor]
         }

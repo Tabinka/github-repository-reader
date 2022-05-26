@@ -4,19 +4,18 @@
       center
       rounded="circle"
       :src="`${profileData.avatar_url}`"
-      width="250"
     ></b-img>
     <div class="profile-info">
       <h1>{{ profileData.login }} 👋</h1>
-      <div class="row w-50 m-auto justify-content-sm-center">
-        <p class="col-sm-3 text-center">
+      <div class="row w-50 justify-content-sm-center">
+        <p class="col-sm-4 text-center">
           Followers: {{ profileData.followers }}
         </p>
-        <p class="col-sm-3 text-center">
+        <p class="col-sm-4 text-center">
           Following: {{ profileData.following }}
         </p>
       </div>
-      <div class="row w-50 m-auto justify-content-sm-center">
+      <div class="row w-50 justify-content-sm-center">
         <div class="col-sm-2 text-center">
         <a
           :href="`${profileData.html_url}`"
@@ -56,17 +55,9 @@ import { ref } from "vue"
 
 const data = ref("")
 
-const urlParams = new URLSearchParams(window.location.search)
-
-if(urlParams.has('username')){
-    localStorage.setItem('username', urlParams.get('username'))
-}else if(localStorage.getItem('username') == null){
-    localStorage.setItem('username', "tabinka")
-}
-
 const loadProfile = async () => {
   try {
-    const profileResponse = await GithubAPI.getGithubData(localStorage.getItem('username'))
+    const profileResponse = await GithubAPI.getGithubProfileData(localStorage.getItem('username'))
     data.value = profileResponse.data
   } catch (err) {
     console.log(err)
